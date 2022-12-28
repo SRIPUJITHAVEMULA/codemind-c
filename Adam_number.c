@@ -1,7 +1,7 @@
 #include<stdio.h>
 int main()
 {
-    int n,q,s=0,sn1,sn2,r,rsn2;
+    int n,q,r,s=0,sn1,sn2,rsn2;
     scanf("%d",&n);
     sn1=n*n;
     q=n;
@@ -28,5 +28,7 @@ int main()
     else
     {
         printf("False");
+    
     }
+
 }
