@@ -1,64 +1,59 @@
+
 #include<stdio.h>
-int prime(int n);
+int is_prime(int);
+int pre_prime(int);
+int nex_prime(int);
 int main()
 {
-    int r,i;
-    scanf("%d",&r);
-    for(i=1;i<=r;i++)
-    {
-        int n,d1,d2,ap,bp,i;
-        scanf("%d",&n);
-        for(i=n;;i++)
-        {
-            if(prime(i))
-            {
-                ap=i;
-                d1=i-n;
-                break;
-            }
-        }
-        for(i=n;;i--)
-        {
-            if(prime(i))
-            {
-                bp=i;
-                d2=n-i;
-                break;
-            }
-        }
-        if(d1<d2)
-        {
-            printf("%d
-",ap);
-        }
-        else if(d1>d2)
-        {
-            printf("%d
-",bp);
-        }
-        else
-        {
-            printf("%d
-",bp);
-        }
-    }
+	int k,n,a,b,i;
+	scanf("%d",&k);
+	for (i=1;i<=k;i++)
+	{
+	scanf("%d",&n);
+	a= pre_prime(n);
+	b= nex_prime(n);
+	if ((n-a)<=(b-n))
+	{
+		printf("%d
+",a);
+		
+	}
+	else
+	{
+		printf("%d
+",b);
+	}
+	}
+	
 }
-    int prime(int n)
-    {
-        int i,c=0;
-        for(i=1;i<=n;i++)
-        {
-            if(n%i==0)
-            {
-                c++;
-            }
-        }
-        if(c==2)
-        {
-            return 1;
-        }
-        else
-        {
-            return 0;
-        }
-    }
+int is_prime(int m)
+{
+		int	fc=0,i;
+	for(i=1;i<=m;i++)
+	{
+
+		if(m%i==0)
+		{
+			fc=fc+1;			
+		}
+	}
+	return fc==2;
+}
+
+
+int pre_prime(int n)
+{
+	while (is_prime(n) == 0)
+	{
+		n--;
+	}
+	return n;
+}
+int nex_prime(int n)
+{
+	while(is_prime(n)==0)
+	{
+		n++;
+	}
+	return n;
+}
